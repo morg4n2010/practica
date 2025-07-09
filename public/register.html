@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Регистрация</title>
+</head>
+<body>
+  <h2>Регистрация</h2>
+  <input id="first_name" placeholder="Имя"><br>
+  <input id="last_name" placeholder="Фамилия"><br>
+  <input id="work_place" placeholder="Место работы"><br>
+  <input id="login" placeholder="Логин"><br>
+  <input id="password" placeholder="Пароль" type="password"><br>
+  <button onclick="register()">Зарегистрироваться</button>
+  <p id="msg"></p>
+
+  <script>
+    function register() {
+      const user = {
+        first_name: document.getElementById('first_name').value,
+        last_name: document.getElementById('last_name').value,
+        work_place: document.getElementById('work_place').value,
+        login: document.getElementById('login').value,
+        password: document.getElementById('password').value,
+      };
+      fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user)
+      }).then(res => {
+        if (res.status === 201) {
+          window.location.href = '/login.html';
+        } else {
+          document.getElementById('msg').textContent = 'Ошибка регистрации';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

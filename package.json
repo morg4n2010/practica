@@ -1,0 +1,31 @@
+{
+  "name": "production-practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morg4n2010/practica.git"
+  },
+  "bugs": {
+    "url": "https://github.com/morg4n2010/practica/issues"
+  },
+  "homepage": "https://github.com/morg4n2010/practica#readme",
+  "description": ""
+}
