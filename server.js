@@ -72,6 +72,12 @@ app.get('/api/check-db', async (req, res) => {
 
 // Получение всех сотрудников
 app.get('/api/employees', async (req, res) => {
+    const validSortFields = ['first_name', 'last_name', 'created_at'];
+    const sortBy = req.query.sort_by;
+    const order = req.query.order === 'desc' ? 'DESC' : 'ASC';
+
+    const sortField = validSortFields.includes(sortBy) ? sortBy : 'id'; // default: id
+
     try {
         const { rows } = await pool.query(`
             SELECT 
@@ -83,7 +89,7 @@ app.get('/api/employees', async (req, res) => {
                 login,
                 TO_CHAR(created_at, 'DD.MM.YYYY HH24:MI') as created_at
             FROM employees
-            ORDER BY id
+            ORDER BY ${sortField} ${order}
         `);
         res.json(rows);
     } catch (err) {

@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <td>${employee.phone}</td>
                     <td>${employee.email}</td>
                     <td>${employee.login}</td>
-                    <td>${employee.formatted_date}</td>
+                    <td>${employee.created_at}</td>
                     <td>
                         <button class="delete" onclick="deleteEmployee(${employee.id})">Удалить</button>
                     </td>
